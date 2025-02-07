@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Button Without Node.js</title>
+    <style>
+        
+
+        .hold-button {
+    width: 400px;
+    height: 100px;
+    border: 5px solid red; /* Thicker border */
+    color: white;
+    font-size: 50px;
+    font-family: "Poppins", sans-serif; /* Use a stylish font */
+    font-weight: bold; /* Bold text */
+    border-radius: 50px; /* Rounded button */
+    background: red; /* Initial background color */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Change color and border on hover */
+.hold-button:hover {
+    background: darkred;
+    border-color: darkred;
+    color: white;
+}
+
+/* Glow effect when clicked */
+.hold-button:active {
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.9); /* White glow */
+    border-color: red;   /* Change border color when clicked */
+}
+
+
+
+        .fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: red;
+            width: 0;
+            transition: width 0.1s;
+        }
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #12143E;
+    margin: 0; /* Remove default margin */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Load React from CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        function HoldButton() {
+            const [progress, setProgress] = React.useState(0);
+            const timerRef = React.useRef(null);
+
+            const startHold = () => {
+                let startTime = Date.now();
+                timerRef.current = setInterval(() => {
+                    let elapsed = Date.now() - startTime;
+                    let percentage = (elapsed / 3000) * 100;
+                    if (percentage >= 100) {
+                        clearInterval(timerRef.current);
+                        window.location.href = "about:blank"; // Redirects to a blank page
+                    }
+                    setProgress(percentage);
+                }, 50);
+            };
+
+            const cancelHold = () => {
+                clearInterval(timerRef.current);
+                setProgress(0);
+            };
+
+            return (
+                <div className="button-container">
+                    <button
+                        onMouseDown={startHold}
+                        onMouseUp={cancelHold}
+                        onMouseLeave={cancelHold}
+                        className="hold-button"
+                    >
+                        EMERGENCY
+                        <div
+                            className="fill"
+                            style={{ width: `${progress}%` }}
+                        ></div>
+                    </button>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<HoldButton />);
+    </script>
+
+</body>
+</html>
