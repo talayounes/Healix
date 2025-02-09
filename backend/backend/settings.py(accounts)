@@ -1,0 +1,30 @@
+# Add the 'accounts' app to INSTALLED_APPS
+INSTALLED_APPS = [
+    # Other apps...
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'accounts',  # our app
+]
+
+# Set up password validation settings (Django's default settings are strong)
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+# Set up the URL for redirect after login
+LOGIN_REDIRECT_URL = '/dashboard/'  # The page to redirect to after login
+LOGOUT_REDIRECT_URL = '/login/'  # The page to redirect to after logout
