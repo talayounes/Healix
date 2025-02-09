@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from healix import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', views.DoctorLoginView.as_view(), name='login'),  # Login URL
+    path('signup/', views.doctor_signup, name='signup'),
+    path('doctor/dashboard/', views.doctor_dashboard, name='doctor_dashboard'),  # Doctor dashboard URL
 ]
