@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Waves -->
+    <div class="waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                
+                <button type="submit">Login</button>
+                <p class="login-link">Don't have an account?<a href="index.html">Back to Sign Up</a></p>
+                <p class="login-link"><a href="forgotpass.html">Forgot password?</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+
+    if (email === "" || password === "") {
+        alert("Please enter your email and password.");
+    } else {
+        alert(`Login Successful!\nEmail: ${email}`);
+    }
+});
+</script>
