@@ -1,0 +1,10 @@
+@login_required
+def dashboard(request):
+    patient_data = {
+        'username': request.user.username,
+        'email': request.user.email,
+        'patient_id': request.user.patient_id,
+        'health_history': HealthHistory.objects.filter(user=request.user),
+        'appointments': Appointment.objects.filter(user=request.user),
+    }
+    return render(request, 'accounts/dashboard.html', {'patient_data': patient_data})
