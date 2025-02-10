@@ -1,0 +1,42 @@
+.upload-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}
+
+.upload-button:hover {
+    background-color: #0056b3; /* Darker blue */
+    color: white;
+}
+
+/* Hide default file input */
+.file-input {
+    display: none;
+}
+
+.upload-title {
+    color: white; /* ✅ Change main title text */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.upload-box {
+    border: 3px dashed white; /* ✅ Dashed border */
+    padding: 50px; /* ✅ Increase padding to make it bigger */
+    width: 50%; /* ✅ Increase width */
+    max-width: 600px; /* ✅ Prevent it from getting too large */
+    margin: 20px auto; /* ✅ Center it */
+}
+
+.upload-label {
+    color: white; /* ✅ Keep "Upload Files" in white */
+    font-size: 18px;
+    font-weight: bold;
+}
+
