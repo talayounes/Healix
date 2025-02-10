@@ -30,3 +30,4 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.patient_name} with {self.doctor.name} on {self.appointment_date}"
+    
