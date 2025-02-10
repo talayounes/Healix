@@ -1,0 +1,179 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #12143e;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 74%; /* Increase the width */
+  max-width: 1400px; /* Set a larger max width */
+  height: 47.5vh; /* Decrease the height */
+  padding-top: 30px;
+  padding: 40px;
+  justify-content: center; /* Center button horizontally */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  margin: auto;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: black;
+  border-radius: 12px;
+  opacity: 0.5; 
+}
+
+.video-background iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.description {
+  color: white;
+  font-family: 'Noe Display', serif;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.description h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.description p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  position: relative;
+  width: 92%;
+  z-index: 1;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid purple;
+  border-radius: 8px;
+  background-color: #f4f4f9;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: #808080;
+}
+
+input[type="date"],
+input[type="time"] {
+  appearance: none;
+  padding-left: 15px;
+}
+
+/* Adjust button position */
+.btn {
+  grid-column: span 2;
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -15px; /* Move the button up */
+  text-align: center; /* Aligns the text to the center */
+
+}
+
+.btn:hover {
+  background-color: #4a0072;
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Tiempos Headline', serif;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  width: 80%;
+  max-width: 500px;
+}
+
+.modal h3 {
+  font-size: 24px;
+  color: #6a0dad;
+}
+
+.modal p {
+  font-size: 18px;
+  color: #555;
+}
+
+.modal .smiley {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.modal .btn-close {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal .btn-close:hover {
+  background-color: #4a0072;
+}
