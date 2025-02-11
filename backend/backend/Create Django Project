@@ -1,4 +1,0 @@
-django-admin startproject healix
-cd healix
-django-admin startapp accounts
-
